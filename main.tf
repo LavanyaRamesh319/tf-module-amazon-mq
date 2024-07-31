@@ -42,7 +42,7 @@ resource "aws_instance" "rabbitmq" {
   instance_type = var.instance_type
   subnet_id = var.subnets[0]
   vpc_security_group_ids = [ aws_security_group.main.id ]
-  ags = merge(var.tags, {Name = "${var.name}-${var.env}"})
+  tags = merge(var.tags, {Name = "${var.name}-${var.env}"})
   root_block_device {
     encrypted = true
     kms_key_id = var.kms_arn
